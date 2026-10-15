@@ -1,0 +1,25 @@
+{
+  "format": 1,
+  "id": "haitien-nombres",
+  "cursus": "haitien",
+  "ordre": 3,
+  "titre": "Compter de 1 à 10",
+  "description": "En, de, twa… jusqu'à dis.",
+  "niveau": "débutant",
+  "tags": ["vocabulaire", "nombres"],
+  "melanger_questions": true,
+
+  "lecon": {
+    "titre": "En, de, twa",
+    "texte": "1 en · 2 de · 3 twa · 4 kat · 5 senk\n6 sis · 7 sèt · 8 uit · 9 nèf · 10 dis\n\nAttention aux accents de « sèt » et « nèf »."
+  },
+
+  "questions": [
+    { "id": "n3", "type": "qcm", "enonce": "Comment dit-on 3 ?", "choix": ["de", "twa", "kat"], "bonne_reponse": "twa" },
+    { "id": "n8", "type": "qcm", "enonce": "« Uit », c'est…", "choix": ["6", "8", "9"], "bonne_reponse": "8" },
+    { "id": "n4-vf", "type": "vrai_faux", "enonce": "« Kat » veut dire 4.", "bonne_reponse": "vrai" },
+    { "id": "n7", "type": "saisie", "enonce": "Écris 7 en kreyòl.", "accepte": ["sèt"], "explication": "Avec un accent grave : sèt." },
+    { "id": "n9", "type": "saisie", "enonce": "Écris 9 en kreyòl.", "accepte": ["nèf"] },
+    { "id": "suite", "type": "trous", "enonce": "en, de, {1}, kat, {2}", "trous": { "1": ["twa"], "2": ["senk"] } }
+  ]
+}

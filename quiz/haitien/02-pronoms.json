@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "id": "haitien-pronoms",
+  "cursus": "haitien",
+  "ordre": 2,
+  "titre": "Les pronoms personnels",
+  "description": "Mwen, ou, li, nou, yo… et leurs formes courtes.",
+  "niveau": "débutant",
+  "tags": ["grammaire", "pronoms"],
+  "melanger_questions": true,
+
+  "lecon": {
+    "titre": "Mwen, ou, li…",
+    "texte": [
+      "mwen (m) : je, moi",
+      "ou (w) : tu, toi",
+      "li (l) : il, elle",
+      "nou (n) : nous, et aussi vous (pluriel)",
+      "yo (y) : ils, elles",
+      "",
+      "« Li » ne marque pas le genre : il veut dire « il » comme « elle ».",
+      "",
+      "Le possessif se place après le nom : « liv mwen » = mon livre, « kay li » = sa maison."
+    ]
+  },
+
+  "questions": [
+    {
+      "id": "li-genre",
+      "type": "vrai_faux",
+      "enonce": "« Li » peut vouloir dire « il » ou « elle ».",
+      "bonne_reponse": true
+    },
+    {
+      "id": "possessif-place",
+      "type": "vrai_faux",
+      "enonce": "En kreyòl, le possessif se place avant le nom, comme en français.",
+      "bonne_reponse": false,
+      "explication": "Il se place après : « liv mwen » (mon livre)."
+    },
+    {
+      "id": "yo",
+      "type": "qcm",
+      "enonce": "Quel pronom veut dire « ils / elles » ?",
+      "choix": ["nou", "yo", "li", "ou"],
+      "bonne_reponse": "yo"
+    },
+    {
+      "id": "nou",
+      "type": "qcm",
+      "enonce": "« Nou » peut signifier…",
+      "choix": ["nous ou vous (pluriel)", "seulement nous", "ils"],
+      "bonne_reponse": 0,
+      "explication": "Le contexte indique s'il s'agit de « nous » ou de « vous »."
+    },
+    {
+      "id": "liv-mwen",
+      "type": "trous",
+      "enonce": "Mon livre : liv {1}",
+      "trous": { "1": ["mwen", "m"] }
+    },
+    {
+      "id": "kay-li",
+      "type": "saisie",
+      "enonce": "Traduis : « sa maison » (kay = maison)",
+      "accepte": ["kay li", "kay l"]
+    }
+  ]
+}

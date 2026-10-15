@@ -1,0 +1,462 @@
+/* ==========================================================================
+   OpenQuizz : thème « Mangue & Lagon »
+   À copier tel quel dans interface/theme.qss (chargé par appliquer_theme()).
+
+   Jetons de couleur (QSS n'a pas de variables : on les répète, d'où ce
+   rappel pour pouvoir tout changer d'un rechercher/remplacer) :
+     fond ........... #FBF6EE   crème chaud, fond des fenêtres
+     surface ........ #FFFFFF   cartes, champs, choix
+     surface douce .. #F4EDE2   survols neutres, rangées alternées
+     bordure ........ #E6DCCB
+     encre .......... #23262F   texte principal (15,1:1 sur la crème)
+     texte discret .. #5E6371   texte secondaire (5,6:1 sur la crème)
+     lagon .......... #0E7C74   couleur principale (5,2:1 sur blanc)
+     lagon survol ... #0B6A63   lagon pressé #095852   lagon clair #DDF2EF
+     mangue ......... #F2A33A   accent chaleureux (décor, jamais du texte)
+     juste .......... #166534 sur #E3F5E8, bordure #4CAF6E
+     accent ......... #92400E sur #FEF3C7, bordure #F2A33A
+     faux ........... #B42318 sur #FDE8E6, bordure #E5675A
+
+   Espacements sur une grille de 4 px ; rayons : 8 (petit), 12, 16 (cartes).
+   ========================================================================== */
+
+/* --- Base ---------------------------------------------------------------- */
+
+QWidget {
+    color: #23262F;
+    font-family: "Nunito", "Segoe UI Variable Text", "Segoe UI", sans-serif;
+    font-size: 15px;
+}
+
+QMainWindow, QDialog, QMessageBox, QStackedWidget, #ecran {
+    background-color: #FBF6EE;
+}
+
+/* Marges extérieures de tous les écrans (QStackedWidget est un QFrame :
+   son padding repousse le contenu) */
+QStackedWidget { padding: 16px 24px; }
+
+/* Les zones de défilement laissent voir le fond crème */
+QScrollArea, QScrollArea > QWidget > QWidget {
+    background: transparent;
+    border: none;
+}
+
+QToolTip {
+    color: #FFFFFF;
+    background-color: #23262F;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+/* --- Textes -------------------------------------------------------------- */
+
+QLabel { background: transparent; }
+
+QLabel#titreApplication {
+    font-size: 40px;
+    font-weight: 800;
+    color: #0E7C74;
+    padding-bottom: 2px;
+}
+
+QLabel#sousTitre {
+    font-size: 18px;
+    color: #5E6371;
+    padding-bottom: 12px;
+}
+
+QLabel#titreEcran {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+QLabel#titreSection {
+    font-size: 13px;
+    font-weight: 700;
+    color: #5E6371;
+    padding: 16px 0 4px 0;
+}
+
+QLabel#titreCarte {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+QLabel#texteCarte { font-size: 15px; }
+
+QLabel#texteDiscret {
+    font-size: 14px;
+    color: #5E6371;
+}
+
+QLabel#etiquetteChamp {
+    font-size: 14px;
+    font-weight: 700;
+    padding-top: 8px;
+}
+
+QLabel#texteLecon {
+    font-size: 17px;
+    padding: 4px 0;
+}
+
+QLabel#enonce {
+    font-size: 21px;
+    font-weight: 700;
+    padding-bottom: 8px;
+}
+
+QLabel#enonceBilan {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+QLabel#texteTrou {
+    font-size: 19px;
+}
+
+QLabel#messageErreur {
+    color: #B42318;
+    font-size: 14px;
+}
+
+QLabel#scoreGeant {
+    font-size: 72px;
+    font-weight: 800;
+    color: #0E7C74;
+    padding-top: 8px;
+}
+
+/* --- Cartes -------------------------------------------------------------- */
+
+QFrame#carte {
+    background-color: #FFFFFF;
+    border: 1px solid #E6DCCB;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+/* Carte d'erreur du bilan : liseré coloré à gauche */
+QFrame#carteErreur {
+    background-color: #FFFFFF;
+    border: 1px solid #E6DCCB;
+    border-left: 5px solid #E5675A;
+    border-radius: 12px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+}
+QFrame#carteErreur[etat="accent"] { border-left-color: #F2A33A; }
+
+/* --- Boutons ------------------------------------------------------------- */
+
+QPushButton {
+    background-color: #FFFFFF;
+    border: 2px solid #E6DCCB;
+    border-radius: 10px;
+    padding: 8px 18px;
+    min-height: 22px;
+    font-weight: 600;
+}
+QPushButton:hover   { background-color: #F4EDE2; }
+QPushButton:pressed { background-color: #E6DCCB; }
+QPushButton:focus   { border-color: #0E7C74; }
+QPushButton:disabled { color: #A3A7B0; background-color: #F4EDE2; }
+
+/* Action principale : une seule par écran */
+QPushButton#boutonPrincipal {
+    background-color: #0E7C74;
+    color: #FFFFFF;
+    border: 3px solid #0E7C74;      /* réservée : le focus change seulement sa couleur */
+    border-radius: 12px;
+    padding: 9px 26px;
+    font-size: 16px;
+    font-weight: 800;
+}
+QPushButton#boutonPrincipal:hover   { background-color: #0B6A63; border-color: #0B6A63; }
+QPushButton#boutonPrincipal:pressed { background-color: #095852; border-color: #095852; }
+QPushButton#boutonPrincipal:focus   { border-color: #9ED9D2; }
+QPushButton#boutonPrincipal:disabled { background-color: #B7D8D4; border-color: #B7D8D4; color: #F4FBFA; }
+
+QPushButton#boutonSecondaire {
+    background-color: transparent;
+    color: #0E7C74;
+    border: 2px solid #0E7C74;
+    border-radius: 12px;
+    padding: 10px 24px;
+    font-weight: 800;
+}
+QPushButton#boutonSecondaire:hover   { background-color: #DDF2EF; }
+QPushButton#boutonSecondaire:pressed { background-color: #C4E8E3; }
+
+/* Actions de navigation : discrètes, sans cadre */
+QPushButton#boutonDiscret {
+    background-color: transparent;
+    color: #0E7C74;
+    border: 2px solid transparent;
+    padding: 6px 12px;
+    font-weight: 700;
+}
+QPushButton#boutonDiscret:hover   { background-color: #DDF2EF; }
+QPushButton#boutonDiscret:pressed { background-color: #C4E8E3; }
+QPushButton#boutonDiscret:focus   { border-color: #9ED9D2; }
+
+/* Boîtes de dialogue : le bouton par défaut (Enregistrer, Oui...) est l'action principale */
+QDialogButtonBox QPushButton:default, QMessageBox QPushButton:default {
+    background-color: #0E7C74;
+    border-color: #0E7C74;
+    color: #FFFFFF;
+}
+QDialogButtonBox QPushButton:default:hover, QMessageBox QPushButton:default:hover {
+    background-color: #0B6A63;
+    border-color: #0B6A63;
+}
+QDialogButtonBox QPushButton:default:focus, QMessageBox QPushButton:default:focus { border-color: #9ED9D2; }
+
+/* Grandes tuiles de l'écran de profils */
+QPushButton#carteProfil {
+    background-color: #FFFFFF;
+    border: 2px solid #E6DCCB;
+    border-radius: 18px;
+    min-width: 200px;
+    min-height: 120px;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+}
+QPushButton#carteProfil:hover   { border-color: #0E7C74; background-color: #F6FBFA; }
+QPushButton#carteProfil:pressed { background-color: #DDF2EF; }
+QPushButton#carteProfil:focus   { border-color: #0E7C74; background-color: #F6FBFA; }
+
+/* Touches ò è à sous les champs */
+QPushButton#toucheSpeciale {
+    background-color: #FFFFFF;
+    border: 1px solid #E6DCCB;
+    border-bottom: 3px solid #E6DCCB;   /* effet « touche de clavier » */
+    border-radius: 8px;
+    min-width: 40px;
+    min-height: 34px;
+    padding: 2px 6px;
+    font-size: 18px;
+    font-weight: 700;
+}
+QPushButton#toucheSpeciale:hover   { border-color: #F2A33A; background-color: #FFF8EC; }
+QPushButton#toucheSpeciale:pressed { border-bottom-width: 1px; background-color: #FEF3C7; }
+
+/* --- Choix (QCM, vrai/faux) : des cartes cliquables ---------------------- */
+
+QRadioButton#choix {
+    background-color: #FFFFFF;
+    border: 2px solid #E6DCCB;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 4px 0;
+    font-size: 17px;
+    spacing: 12px;
+}
+QRadioButton#choix:hover   { border-color: #9ED9D2; background-color: #F6FBFA; }
+QRadioButton#choix:checked { border-color: #0E7C74; background-color: #DDF2EF; }
+QRadioButton#choix:focus   { border-color: #0E7C74; }
+QRadioButton#choix:disabled { color: #5E6371; background-color: #FFFFFF; border-color: #EFE7DA; }
+
+QRadioButton#choix::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #B9AE9C;
+    background-color: #FFFFFF;
+}
+QRadioButton#choix::indicator:checked {
+    border-color: #0E7C74;
+    background-color: qradialgradient(cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+                                      stop:0 #0E7C74, stop:0.5 #0E7C74,
+                                      stop:0.56 #FFFFFF, stop:1 #FFFFFF);
+}
+
+/* Après correction (les choix sont désactivés) */
+QRadioButton#choix[etat="juste"],
+QRadioButton#choix[etat="juste"]:disabled {
+    color: #166534;
+    background-color: #E3F5E8;
+    border-color: #4CAF6E;
+    font-weight: 700;
+}
+QRadioButton#choix[etat="faux"],
+QRadioButton#choix[etat="faux"]:disabled {
+    color: #B42318;
+    background-color: #FDE8E6;
+    border-color: #E5675A;
+    font-weight: 700;
+}
+QRadioButton#choix[etat="juste"]::indicator { border-color: #4CAF6E; }
+QRadioButton#choix[etat="juste"]::indicator:checked {
+    border-color: #166534;
+    background-color: qradialgradient(cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+                                      stop:0 #166534, stop:0.5 #166534,
+                                      stop:0.56 #FFFFFF, stop:1 #FFFFFF);
+}
+QRadioButton#choix[etat="faux"]::indicator:checked {
+    border-color: #B42318;
+    background-color: qradialgradient(cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+                                      stop:0 #B42318, stop:0.5 #B42318,
+                                      stop:0.56 #FFFFFF, stop:1 #FFFFFF);
+}
+
+/* --- Cases à cocher (cursus suivis) -------------------------------------- */
+
+QCheckBox { spacing: 10px; padding: 4px 0; }
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #B9AE9C;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+QCheckBox::indicator:hover   { border-color: #0E7C74; }
+QCheckBox::indicator:checked {
+    border-color: #0E7C74;
+    background-color: #0E7C74;
+    image: url(@INTERFACE@/coche.svg);   /* @INTERFACE@ remplacé au chargement */
+}
+
+/* --- Champs de saisie ---------------------------------------------------- */
+
+QLineEdit {
+    background-color: #FFFFFF;
+    border: 2px solid #E6DCCB;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    selection-background-color: #9ED9D2;
+    selection-color: #23262F;
+}
+QLineEdit:hover { border-color: #CFC3AF; }
+QLineEdit:focus { border-color: #0E7C74; }
+
+QLineEdit#champReponse { font-size: 19px; padding: 12px 14px; }
+QLineEdit#champTrou    { font-size: 18px; padding: 6px 10px; border-radius: 8px; }
+
+QLineEdit[etat="juste"]  { color: #166534; background-color: #E3F5E8; border-color: #4CAF6E; }
+QLineEdit[etat="accent"] { color: #92400E; background-color: #FEF3C7; border-color: #F2A33A; }
+QLineEdit[etat="faux"]   { color: #B42318; background-color: #FDE8E6; border-color: #E5675A; }
+
+/* --- Bandeau de correction ---------------------------------------------- */
+
+QFrame#feedback {
+    border-radius: 14px;
+    border: 2px solid #E6DCCB;
+    background-color: #FFFFFF;
+    padding: 12px 16px;
+}
+QFrame#feedback[etat="juste"]  { background-color: #E3F5E8; border-color: #4CAF6E; }
+QFrame#feedback[etat="accent"] { background-color: #FEF3C7; border-color: #F2A33A; }
+QFrame#feedback[etat="faux"]   { background-color: #FDE8E6; border-color: #E5675A; }
+
+QLabel#feedbackTitre { font-size: 18px; font-weight: 800; }
+QLabel#feedbackTitre[etat="juste"]  { color: #166534; }
+QLabel#feedbackTitre[etat="accent"] { color: #92400E; }
+QLabel#feedbackTitre[etat="faux"]   { color: #B42318; }
+
+QLabel#feedbackTexte { font-size: 15px; color: #23262F; }
+
+/* --- Progression --------------------------------------------------------- */
+
+QProgressBar#progression {
+    background-color: #EFE6D8;
+    border: none;
+    border-radius: 5px;
+    max-height: 10px;
+    min-height: 10px;
+}
+QProgressBar#progression::chunk {
+    border-radius: 5px;
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #0E7C74, stop:1 #16A394);
+}
+
+/* --- Liste des quiz ------------------------------------------------------ */
+
+QTreeWidget#listeQuiz {
+    background-color: #FFFFFF;
+    border: 1px solid #E6DCCB;
+    border-radius: 16px;
+    padding: 8px;
+    font-size: 15px;
+    outline: 0;
+}
+QTreeWidget#listeQuiz::item {
+    padding: 9px 6px;
+    border: none;
+}
+QTreeWidget#listeQuiz::item:hover    { background-color: #F4EDE2; }
+QTreeWidget#listeQuiz::item:selected { background-color: #DDF2EF; color: #0B5550; }
+
+QHeaderView { background: transparent; border: none; }
+QHeaderView::section {
+    background-color: transparent;
+    color: #5E6371;
+    border: none;
+    border-bottom: 1px solid #E6DCCB;
+    padding: 6px 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+QSplitter::handle { background: transparent; width: 16px; }
+
+/* --- Barres de défilement fines ----------------------------------------- */
+
+QScrollBar:vertical { background: transparent; width: 10px; margin: 4px 2px; }
+QScrollBar::handle:vertical { background: #D9CDB9; border-radius: 3px; min-height: 32px; }
+QScrollBar::handle:vertical:hover { background: #B9AE9C; }
+QScrollBar:horizontal { background: transparent; height: 10px; margin: 2px 4px; }
+QScrollBar::handle:horizontal { background: #D9CDB9; border-radius: 3px; min-width: 32px; }
+QScrollBar::add-line, QScrollBar::sub-line { width: 0; height: 0; }
+QScrollBar::add-page, QScrollBar::sub-page { background: transparent; }
+
+/* --- Menus contextuels (clic droit sur un profil) ----------------------- */
+
+QMenu {
+    background-color: #FFFFFF;
+    border: 1px solid #E6DCCB;
+    border-radius: 10px;
+    padding: 6px;
+}
+QMenu::item { padding: 8px 18px; border-radius: 6px; }
+QMenu::item:selected { background-color: #DDF2EF; color: #0B5550; }
+
+/* --- Joker : la leçon dans une fenêtre à part pendant une question -------
+   Noms attendus côté code :
+     bouton sur l'écran de question ..... QPushButton#boutonJoker
+     fenêtre de la leçon ................ QDialog#fenetreLecon
+     (contenu : réutiliser #carte, #titreCarte, #texteLecon, #boutonPrincipal) */
+
+QPushButton#boutonJoker {
+    background-color: #FFF8EC;
+    color: #92400E;
+    border: 2px solid #F2A33A;
+    border-radius: 12px;
+    padding: 8px 18px;
+    font-weight: 800;
+}
+QPushButton#boutonJoker:hover   { background-color: #FEF3C7; }
+QPushButton#boutonJoker:pressed { background-color: #FDE68A; }
+QPushButton#boutonJoker:focus   { border-color: #B45309; }
+QPushButton#boutonJoker:disabled { color: #B9A68A; background-color: #F4EDE2; border-color: #E6DCCB; }
+
+/* Fenêtre de la leçon : liseré mangue en haut pour rappeler le joker */
+QDialog#fenetreLecon {
+    background-color: #FBF6EE;
+    border-top: 6px solid #F2A33A;
+}
+QDialog#fenetreLecon QFrame#carte { padding: 24px; }
+QDialog#fenetreLecon QLabel#texteLecon { font-size: 17px; }
+
+/* Question répondue avec un joker : comptée fausse, ton mangue */
+QFrame#feedback[etat="joker"]     { background-color: #FFF8EC; border-color: #F2A33A; }
+QLabel#feedbackTitre[etat="joker"] { color: #92400E; }
+QFrame#carteErreur[etat="joker"]  { border-left-color: #F2A33A; }

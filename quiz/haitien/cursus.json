@@ -1,0 +1,6 @@
+{
+  "id": "haitien",
+  "titre": "Kreyòl ayisyen",
+  "description": "Parcours de découverte du créole haïtien, du premier bonjour aux phrases simples.",
+  "caracteres_speciaux": ["è", "ò", "à"]
+}

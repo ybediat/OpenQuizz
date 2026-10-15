@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "id": "haitien-salutations",
+  "cursus": "haitien",
+  "ordre": 1,
+  "titre": "Les salutations",
+  "description": "Dire bonjour, demander des nouvelles, remercier.",
+  "niveau": "débutant",
+  "tags": ["vocabulaire", "salutations"],
+  "melanger_questions": false,
+
+  "lecon": {
+    "titre": "Bonjou !",
+    "texte": [
+      "Le matin, on salue avec « Bonjou ». À partir de l'après-midi, on dit « Bonswa ».",
+      "",
+      "Pour demander des nouvelles : « Kòman ou ye ? » (Comment vas-tu ?)",
+      "On répond par exemple : « Mwen byen, mèsi. » (Je vais bien, merci.)",
+      "",
+      "Entre amis, on entend souvent « Sa k pase ? » (Quoi de neuf ?) et la réponse « N ap boule ! » (Ça roule !).",
+      "",
+      "Pour remercier : « Mèsi » ou « Mèsi anpil » (merci beaucoup). Pour prendre congé : « Orevwa »."
+    ]
+  },
+
+  "questions": [
+    {
+      "id": "bonswa",
+      "type": "qcm",
+      "enonce": "Comment salue-t-on quelqu'un en fin d'après-midi ?",
+      "choix": ["Bonjou", "Bonswa", "Orevwa"],
+      "bonne_reponse": "Bonswa",
+      "explication": "« Bonswa » s'emploie dès l'après-midi, « Bonjou » plutôt le matin."
+    },
+    {
+      "id": "orevwa",
+      "type": "qcm",
+      "enonce": "Que veut dire « Orevwa » ?",
+      "choix": ["Merci", "Au revoir", "S'il te plaît"],
+      "bonne_reponse": 1
+    },
+    {
+      "id": "mesi-vf",
+      "type": "vrai_faux",
+      "enonce": "« Mèsi anpil » signifie « merci beaucoup ».",
+      "bonne_reponse": "vrai"
+    },
+    {
+      "id": "mwen-byen",
+      "type": "trous",
+      "enonce": "— Kòman ou ye ?\n— Mwen {1}, mèsi.",
+      "trous": { "1": ["byen"] },
+      "explication": "« Mwen byen » : je vais bien."
+    },
+    {
+      "id": "sa-k-pase",
+      "type": "trous",
+      "enonce": "— Sa k {1} ?\n— N ap {2} !",
+      "trous": { "1": ["pase"], "2": ["boule"] },
+      "explication": "Échange familier très courant : « Quoi de neuf ? — Ça roule ! »"
+    },
+    {
+      "id": "mesi-anpil",
+      "type": "saisie",
+      "enonce": "Traduis en kreyòl : « merci beaucoup »",
+      "accepte": ["mèsi anpil"],
+      "tolerance_accents": "avertir",
+      "explication": "« Anpil » veut dire « beaucoup »."
+    }
+  ]
+}
